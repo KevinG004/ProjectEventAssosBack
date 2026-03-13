@@ -1,3 +1,7 @@
 <Solution>
+  <Project Path="ProjectEventAssos.Core/ProjectEventAssos.Core.csproj" Id="95dd3ffb-b942-4133-bf53-a982efb59dbe" />
+  <Project Path="ProjectEventAssos.Domain/ProjectEventAssos.Domain.csproj" Id="264b9e9a-1274-401b-a99f-55668880c211" />
+  <Project Path="ProjectEventAssos.Infrastucture/ProjectEventAssos.Infrastucture.csproj" Id="67cfbfad-5dd5-4806-831e-8e6a26ee9807" />
+  <Project Path="ProjectEventAssos.SecurityTools/ProjectEventAssos.SecurityTools.csproj" Id="9cbe0672-92a9-4379-8d82-eafaf40b683f" />
   <Project Path="ProjectEventAssosAPI/ProjectEventAssosAPI.csproj" />
 </Solution>
