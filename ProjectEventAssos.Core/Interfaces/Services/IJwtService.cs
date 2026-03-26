@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ProjectEventAssos.Core.Interfaces.Services
 {
-    internal interface IJwtService
+    public interface IJwtService
     {
         Task<LoginResponseDTO> GenerateToken(User user);
     }

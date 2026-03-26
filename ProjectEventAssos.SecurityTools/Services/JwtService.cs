@@ -1,8 +1,11 @@
-﻿using ProjectEventAssos.Core.Dto.Responses;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using ProjectEventAssos.Core.Dto.Responses;
 using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
@@ -43,7 +46,7 @@ namespace ProjectEventAssos.Core.Service.Auth
             // Génération du token sous forme de chaîne
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-            return Task.FromResult(new LoginResponseDto
+            return Task.FromResult(new LoginResponseDTO
             {
                 Token = tokenString,
                 Expiration = expiration
