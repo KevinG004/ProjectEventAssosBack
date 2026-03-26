@@ -8,9 +8,15 @@
 
   <ItemGroup>
     <Folder Include="DataBase\Config\" />
-    <Folder Include="DataBase\DataContext\" />
     <Folder Include="DataBase\Migrations\" />
-    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectEventAssos.Core\ProjectEventAssos.Core.csproj" />
   </ItemGroup>
 
 </Project>

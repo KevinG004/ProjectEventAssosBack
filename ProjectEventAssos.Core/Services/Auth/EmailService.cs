@@ -4,6 +4,8 @@ using System.Text;
 using MailKit.Net.Smtp;
 using MimeKit;
 using ProjectEventAssos.Core.Interfaces.Services;
+using Microsoft.Extensions.Options;
+using ProjectEventAssos.Domain.Models;
 
 namespace ProjectEventAssos.Core.Services.Auth
 {
@@ -24,14 +26,15 @@ namespace ProjectEventAssos.Core.Services.Auth
 
             message.From.Add(new MailboxAddress(_settings.SenderName, _settings.SenderEmail));
             message.To.Add(new MailboxAddress(userName, toEmail));
-            message.Subject = "Bienvenue sur notre plateforme !";
+            message.Subject = "Bienvenue sur Assoc'Event !";
 
             var bodyBuilder = new BodyBuilder
             {
                 HtmlBody = $@"
-                <h2>Bienvenue, {userName} !</h2>
+                <h2>Bienvenue sur Assoc'Event, !</h2>
                 <p>Votre inscription a bien été prise en compte.</p>
-                <p>Vous pouvez dès maintenant vous connecter et profiter de nos services.</p>
+                <p>Vous pouvez dès maintenant vous connecter et profiter de nos services.
+                   lors de votre prochaine connection vous devrez changer votre mot de passe et vos données de profil</p>
                 <br/>
                 <p>Cordialement,<br/>Assoc'Event</p>
             "

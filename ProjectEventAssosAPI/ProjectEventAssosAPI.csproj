@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\ProjectEventAssos.Core\ProjectEventAssos.Core.csproj" />
+    <ProjectReference Include="..\ProjectEventAssos.Infrastucture\ProjectEventAssos.Infrastucture.csproj" />
   </ItemGroup>
 
 </Project>
