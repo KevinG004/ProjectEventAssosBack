@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProjectEventAssos.Core.Dto.Requests
 {
-    internal class RegisterRequestDTO
+    public class RegisterRequestDTO
     {
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?=&])[A-Za-z\d@$!%*?=&]{8,}$",
         ErrorMessage = "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial")]
@@ -13,7 +13,7 @@ namespace ProjectEventAssos.Core.Dto.Requests
 
 
         [StringLength(100, ErrorMessage = "La longueur maximum doit être comprise entre 2 et 100 caractères", MinimumLength = 2)]
-        public string UserName { get; set; } = null!;
+        public string Email { get; set; } = null!;
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using ProjectEventAssos.Domain.Models;
+﻿using ProjectEventAssos.Core.Dto.Responses;
+using ProjectEventAssos.Core.Interfaces.Services;
+using ProjectEventAssos.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -8,7 +10,7 @@ namespace ProjectEventAssos.Core.Service.Auth
 {
     internal class JwtService(IConfiguration configuration) : IJwtService
     {
-        public Task<LoginResponseDto> GenerateToken(User user)
+        public Task<LoginResponseDTO> GenerateToken(User user)
         {
             var jwtSettings = configuration.GetSection("JwtSettings");
             var secretKey = jwtSettings["SecretKey"] ?? throw new InvalidOperationException("JWT Secret Key is not configured.");

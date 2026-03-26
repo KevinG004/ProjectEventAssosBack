@@ -1,6 +1,8 @@
 ﻿namespace ProjectEventAssos.Core.Service.Auth;
 
 using ProjectEventAssos.Core.Dto.Requests;
+using ProjectEventAssos.Core.Dto.Responses;
+using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Domain.Models;
 
 internal class AuthService(
