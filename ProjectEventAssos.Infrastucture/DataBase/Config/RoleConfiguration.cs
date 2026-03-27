@@ -25,7 +25,8 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Config
                 .HasMaxLength(1000);
 
             builder.HasData(
-                new Role { Id = 1, Name = "Admin", Description = "Role Admin ayant tout les droits possibles" }
+                new Role { Id = 1, Name = "Admin", Description = "Role Admin ayant tout les droits possibles" },
+                new Role { Id = 2, Name = "Utilisateur", Description = "Role User étant le Role avec le moins de permission" }
                 );
 
         }
