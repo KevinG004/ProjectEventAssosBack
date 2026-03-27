@@ -38,7 +38,7 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Config
                 .HasMaxLength(1);
 
             builder.HasData(
-                new User {Id = Guid.NewGuid(),RoleId = 1, Email = "Madame.Dupont@gmail.com",UserName = "MadameDupont",Password = "test1234=",BirthDate = new DateOnly(2000,07,25),Gender = 'F'}
+                new User {Id = new Guid("3fa85f64 - 5717 - 4562 - b3fc - 2c963f66afa6"), RoleId = 1, Email = "Madame.Dupont@gmail.com",UserName = "MadameDupont",Password = "test1234=",BirthDate = new DateOnly(2000,07,25),Gender = 'F'}
                 );
         }
     }
