@@ -22,7 +22,7 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Config
                 .HasMaxLength(100);
 
             builder.Property(t => t.Description)
-                .HasMaxLength(1000);
+                .HasMaxLength(250);
 
             builder.HasData(
                 new Role { Id = 1, Name = "Admin", Description = "Role Admin ayant tout les droits possibles" },
