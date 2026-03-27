@@ -34,8 +34,9 @@ namespace ProjectEventAssos.Core.Services.Auth
                 <h2>Bienvenue sur Assoc'Event, !</h2>
                 <p>Votre inscription a bien été prise en compte.</p>
                 <p>Vous pouvez dès maintenant vous connecter et profiter de nos services.
-                   lors de votre prochaine connection vous devrez changer votre mot de passe et vos données de profil</p>
-                <br/>
+                <br>
+                   Lors de votre prochaine connection vous devrez changer votre mot de passe et vos données de profil</p>
+                <br>
                 <p>Cordialement,<br/>Assoc'Event</p>
             "
             };
