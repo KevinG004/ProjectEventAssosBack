@@ -9,7 +9,7 @@ namespace ProjectEventAssos.Infrastucture.DataBase.DataContext
     {
         public AssocEventContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Event> Todos { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
