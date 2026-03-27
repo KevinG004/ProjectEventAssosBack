@@ -3,12 +3,14 @@
 using ProjectEventAssos.Core.Dto.Requests;
 using ProjectEventAssos.Core.Dto.Responses;
 using ProjectEventAssos.Core.Interfaces.Services;
+using ProjectEventAssos.Core.Interfaces.Tools;
 using ProjectEventAssos.Domain.Models;
 
 internal class AuthService(
     IUserRepository _userRepository,
-    IPasswordHasherService _passwordHasherService,
-    IJwtService _jwtService
+    IPasswordHashService _passwordHasherService,
+    IJwtService _jwtService,
+    IPasswordGenerateService _password
     ) : IAuthService
 {
     public async Task<LoginResponseDTO> Login(LoginRequestDTO credentials)
@@ -29,7 +31,8 @@ internal class AuthService(
         if (existingUser != null)
             throw new InvalidOperationException("L'email est déjà utilisée");
 
-        var hashedPassword = _passwordHasherService.HashPassword(credentials.Password);
+        var StockedPassword = _password.GeneratePassword();
+        var hashedPassword = _passwordHasherService.PasswordHash(StockedPassword);
 
         var user = new User
         {
