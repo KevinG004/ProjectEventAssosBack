@@ -20,12 +20,12 @@ namespace ProjectEventAssos.Core.Services.Auth
             _settings = settings.Value;
         }
 
-        public async Task SendWelcomeEmailAsync(string toEmail, string userName)
+        public async Task SendWelcomeEmailAsync(string toEmail, string password)
         {
             var message = new MimeMessage();
 
             message.From.Add(new MailboxAddress(_settings.SenderName, _settings.SenderEmail));
-            message.To.Add(new MailboxAddress(userName, toEmail));
+            message.To.Add(new MailboxAddress("", toEmail));
             message.Subject = "Bienvenue sur Assoc'Event !";
 
             var bodyBuilder = new BodyBuilder
@@ -33,6 +33,7 @@ namespace ProjectEventAssos.Core.Services.Auth
                 HtmlBody = $@"
                 <h2>Bienvenue sur Assoc'Event, !</h2>
                 <p>Votre inscription a bien été prise en compte.</p>
+                <p>Votre mot de passe temporaire est {password}.</p>
                 <p>Vous pouvez dès maintenant vous connecter et profiter de nos services.
                 <br>
                    Lors de votre prochaine connection vous devrez changer votre mot de passe et vos données de profil</p>

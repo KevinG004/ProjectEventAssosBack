@@ -13,8 +13,10 @@ namespace ProjectEventAssos.SecurityTools.Tools
         private const string Number = "0123456789";
         private const string Special = "@#$=~^&";
         private const string PasswordRandom = Alphabet + Number + Special;
-        public string GeneratePassword(int length = 12)
+        private const int length = 12;
+        public string GeneratePassword()
         {
+            
             List<char> chars = [];
                 chars.Add(Alphabet[RandomNumberGenerator.GetInt32(Alphabet.Length)]);
 

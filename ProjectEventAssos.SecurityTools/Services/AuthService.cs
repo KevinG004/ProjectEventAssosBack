@@ -10,7 +10,8 @@ internal class AuthService(
     IUserRepository _userRepository,
     IPasswordHashService _passwordHasherService,
     IJwtService _jwtService,
-    IPasswordGenerateService _password
+    IPasswordGenerateService _password,
+    IEmailService _emailService
     ) : IAuthService
 {
     public async Task<LoginResponseDTO> Login(LoginRequestDTO credentials)
@@ -42,6 +43,7 @@ internal class AuthService(
             Role = credentials.Role,
         };
 
+        await _emailService.SendWelcomeEmailAsync(credentials.Email, StockedPassword);
         return await _userRepository.AddAsync(user);
     }
 }
