@@ -8,5 +8,7 @@ namespace ProjectEventAssos.Core.Interfaces.Services
     public interface IUserService : IBaseService<User, Guid>
     {
         Task<User?> GetUserByEmail(string email);
+
+        Task<User?> GetUserByUserName(string UserName);
     }
 }
