@@ -4,8 +4,8 @@ using System.Text;
 
 namespace ProjectEventAssos.Core.Interfaces.Services
 {
-    internal interface IEmailService
+    public interface IEmailService
     {
-        Task SendWelcomeEmailAsync(string toEmail, string userName);
+        Task SendWelcomeEmailAsync(string toEmail, string password);
     }
 }
