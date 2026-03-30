@@ -2,6 +2,7 @@
 
 using ProjectEventAssos.Core.Dto.Requests;
 using ProjectEventAssos.Core.Dto.Responses;
+using ProjectEventAssos.Core.Interfaces.Repositories;
 using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Core.Interfaces.Tools;
 using ProjectEventAssos.Domain.Models;
