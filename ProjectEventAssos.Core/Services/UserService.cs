@@ -1,4 +1,5 @@
-﻿using ProjectEventAssos.Core.Interfaces.Repositories;
+﻿using ProjectEventAssos.Core.Dto.Responses;
+using ProjectEventAssos.Core.Interfaces.Repositories;
 using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Domain.Models;
 using System;
@@ -48,14 +49,37 @@ namespace ProjectEventAssos.SecurityTools.Services
             throw new NotImplementedException();
         }
 
-        public Task<User?> GetUserByEmail(string email)
+        public async Task<UserResponseEmailDTO?> GetUserByEmail(string email)
         {
-            throw new NotImplementedException();
+            var user = await _userRespository.GetUserByEmail(email);
+            if (user == null)
+            {
+                return null;
+            }
+            return new UserResponseEmailDTO
+            {
+                UserName = user.Email,
+                Id = user.Id,
+                BirthDate = user.BirthDate,
+                Gender = user.Gender,
+                Role = user.Role,
+            };
         }
-
-        public Task<User?> GetUserByUserName(string UserName)
+        public async Task<UserResponseUserNameDTO?> GetUserByUserName(string UserName)
         {
-            throw new NotImplementedException();
+            var user = await _userRespository.GetUserByUserName(UserName);
+            if (user == null)
+            {
+                return null;
+            }
+            return new UserResponseUserNameDTO
+            {
+                Email = user.Email,
+                Id = user.Id,
+                BirthDate = user.BirthDate,
+                Gender = user.Gender,
+                Role = user.Role,
+            };
         }
 
         public async Task UpdateAsync(Guid id, User user)
