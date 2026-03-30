@@ -19,5 +19,6 @@ namespace ProjectEventAssos.Core.Interfaces.Services
         Task<TEntity> AddAsync(TEntity entity);
         Task UpdateAsync(TKey id, TEntity entity);
         Task DeleteAsync(TKey id);
+
     }
 }

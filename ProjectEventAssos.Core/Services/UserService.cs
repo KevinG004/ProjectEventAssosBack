@@ -27,6 +27,11 @@ namespace ProjectEventAssos.SecurityTools.Services
             await _userRespository.DeleteAsync(id);
         }
 
+        public Task<bool> ExistsAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<User>> FindAsync(Expression<Func<User, bool>> predicate)
         {
             throw new NotImplementedException();
@@ -44,6 +49,11 @@ namespace ProjectEventAssos.SecurityTools.Services
         }
 
         public Task<User?> GetUserByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<User?> GetUserByUserName(string UserName)
         {
             throw new NotImplementedException();
         }
