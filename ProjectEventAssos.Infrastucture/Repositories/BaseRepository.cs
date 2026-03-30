@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjectEventAssos.Core.Interfaces.Repositories;
+using ProjectEventAssos.Domain.Models;
+using ProjectEventAssos.Infrastucture.DataBase.DataContext;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;

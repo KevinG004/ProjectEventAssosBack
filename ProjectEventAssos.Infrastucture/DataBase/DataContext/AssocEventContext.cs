@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjectEventAssos.Domain.Models;
 namespace ProjectEventAssos.Infrastucture.DataBase.DataContext
 {
-    internal class AssocEventContext : DbContext
+    public class AssocEventContext : DbContext
     {
         public AssocEventContext(DbContextOptions options) : base(options) { }
 
