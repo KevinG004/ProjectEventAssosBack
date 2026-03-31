@@ -7,7 +7,7 @@ using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Core.Interfaces.Tools;
 using ProjectEventAssos.Domain.Models;
 
-internal class AuthService(
+public class AuthService(
     IUserRepository _userRepository,
     IPasswordHashService _passwordHasherService,
     IJwtService _jwtService,

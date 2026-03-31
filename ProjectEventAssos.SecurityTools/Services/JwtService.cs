@@ -11,7 +11,7 @@ using System.Text;
 
 namespace ProjectEventAssos.Core.Service.Auth
 {
-    internal class JwtService(IConfiguration configuration) : IJwtService
+    public class JwtService(IConfiguration configuration) : IJwtService
     {
         public Task<LoginResponseDTO> GenerateToken(User user)
         {
