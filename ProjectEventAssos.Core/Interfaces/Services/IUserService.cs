@@ -10,6 +10,6 @@ namespace ProjectEventAssos.Core.Interfaces.Services
     {
         Task<UserResponseEmailDTO?> GetUserByEmail(string email);
 
-        Task<User?> GetUserByUserName(string UserName);
+        Task<UserResponseUserNameDTO?> GetUserByUserName(string UserName);
     }
 }
