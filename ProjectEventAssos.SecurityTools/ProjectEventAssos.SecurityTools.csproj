@@ -16,7 +16,10 @@
   <ItemGroup>
     <ProjectReference Include="..\ProjectEventAssos.Core\ProjectEventAssos.Core.csproj" />
     <ProjectReference Include="..\ProjectEventAssos.Domain\ProjectEventAssos.Domain.csproj" />
-    <ProjectReference Include="..\ProjectEventAssosAPI\ProjectEventAssosAPI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
 </Project>

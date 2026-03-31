@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProjectEventAssos.Core\ProjectEventAssos.Core.csproj" />
+    <ProjectReference Include="..\ProjectEventAssos.SecurityTools\ProjectEventAssos.SecurityTools.csproj" />
   </ItemGroup>
 
 </Project>

@@ -18,12 +18,7 @@ public class AuthController(IAuthService _authService) : ControllerBase
         {
             var createdUser = await _authService.Register(request);
 
-            return CreatedAtAction(
-                actionName: "GetUser",
-                controllerName: "Users",
-                routeValues: new { id = createdUser.Id },
-                value: createdUser
-                );
+            return Ok(createdUser);
         }
         catch (Exception ex)
         {

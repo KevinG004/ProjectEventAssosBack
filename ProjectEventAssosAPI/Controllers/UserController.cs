@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ProjectEventAssos.Core.Dto.Responses;
 using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Domain.Models;
 
@@ -10,6 +11,15 @@ namespace ProjectEventAssosAPI.Controllers
     [Authorize]
     public class UserController(IUserService _userService) : Controller
     {
+        //[HttpGet]
+        //[ProducesResponseType(typeof(IEnumerable<UserResponseDTO>), StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //public async Task<ActionResult<IEnumerable<UserResponseDTO>>> GetUsers()
+        //{
+        //    //var users = await _userService.GetAllAsync();
+        //    //return Ok(users.ToUserResponseDtos());
+        //}
+
         [HttpGet]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
