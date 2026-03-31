@@ -33,6 +33,7 @@ namespace ProjectEventAssos.Core.Services.Auth
                 HtmlBody = $@"
                 <h2>Bienvenue sur Assoc'Event, !</h2>
                 <p>Votre inscription a bien été prise en compte.</p>
+                <p>Votre Identifiant est {toEmail}.</p>
                 <p>Votre mot de passe temporaire est {password}.</p>
                 <p>Vous pouvez dès maintenant vous connecter et profiter de nos services.
                 <br>
