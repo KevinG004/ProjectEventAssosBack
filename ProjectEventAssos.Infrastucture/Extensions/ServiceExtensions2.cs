@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using ProjectEventAssos.Core.Interfaces.Repositories;
 using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Core.Interfaces.Tools;
-using ProjectEventAssos.Core.Services.Auth;
 using ProjectEventAssos.Infrastucture.DataBase.DataContext;
 using ProjectEventAssos.Infrastucture.Repositories;
 using ProjectEventAssos.SecurityTools.Services;
