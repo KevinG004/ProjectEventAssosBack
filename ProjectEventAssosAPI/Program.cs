@@ -6,19 +6,17 @@ using ProjectEventAssos.Infrastucture.Repositories;
 using ProjectEventAssosAPI.Extension;
 using ProjectEventAssosAPI.Scalar;
 using Scalar.AspNetCore;
+using ProjectEventAssos.Infrastucture.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AssocEventContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("Default")
-    ));
 
 // Configuration des cors
 builder.Services.ConfigurePolicyCors(builder.Configuration);
 
 // Add services to the container.
 builder.Services.ConfigureJwTAuthentication(builder.Configuration);
+builder.Services.ConfigureInfrastructure(builder.Configuration);
 builder.Services.AddAuthorization();    
 
 builder.Services.AddControllers();

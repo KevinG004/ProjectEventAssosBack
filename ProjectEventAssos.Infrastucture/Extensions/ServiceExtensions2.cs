@@ -4,9 +4,13 @@ using Microsoft.Extensions.DependencyInjection;
 using ProjectEventAssos.Core.Interfaces.Repositories;
 using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Core.Interfaces.Tools;
+using ProjectEventAssos.Core.Service.Auth;
+using ProjectEventAssos.Core.Services.Auth;
+using ProjectEventAssos.Domain.Models;
 using ProjectEventAssos.Infrastucture.DataBase.DataContext;
 using ProjectEventAssos.Infrastucture.Repositories;
 using ProjectEventAssos.SecurityTools.Services;
+using ProjectEventAssos.SecurityTools.Tools;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +26,13 @@ namespace ProjectEventAssos.Infrastucture.Extensions
             services.AddDbContext<AssocEventContext>(options => options.UseSqlServer(connectionString));
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IPasswordHashService, HashPassword>();
+            services.AddScoped<IPasswordGenerateService, PasswordGenerateService>();
+            services.AddScoped<IUserService, UserService>();
+            services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
         }
     }
 }

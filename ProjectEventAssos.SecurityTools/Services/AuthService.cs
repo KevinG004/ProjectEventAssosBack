@@ -41,7 +41,7 @@ public class AuthService(
             Id = Guid.NewGuid(),
             Email = credentials.Email,
             Password = hashedPassword,
-            Role = credentials.Role,
+            RoleId = credentials.RoleId,
         };
 
         await _emailService.SendWelcomeEmailAsync(credentials.Email, StockedPassword);
