@@ -1,5 +1,6 @@
-﻿namespace ProjectEventAssos.Core.Service.Auth;
+﻿namespace ProjectEventAssos.SecurityTools.Services;
 
+using Microsoft.AspNetCore.Http.HttpResults;
 using ProjectEventAssos.Core.Dto.Requests;
 using ProjectEventAssos.Core.Dto.Responses;
 using ProjectEventAssos.Core.Interfaces.Repositories;
@@ -20,11 +21,22 @@ public class AuthService(
         if (string.IsNullOrWhiteSpace(credentials.Identifiant) || string.IsNullOrWhiteSpace(credentials.Password))
             throw new ArgumentException("Identifiant et mot de passe sont requis");
 
-        var user = await _userRepository.GetUserByEmail(credentials.Identifiant);
-        if (user == null || !_passwordHasherService.VerifyPassword(credentials.Password, user.Password))
-            throw new UnauthorizedAccessException("Identifiant ou mot de passe incorrect");
+        if (credentials.Identifiant.Contains('@'))
+        {
+            var user = await _userRepository.GetUserByEmail(credentials.Identifiant);
+            if (user == null || !_passwordHasherService.VerifyPassword(credentials.Password, user.Password))
+                throw new UnauthorizedAccessException("Identifiant ou mot de passe incorrect");
 
-        return await _jwtService.GenerateToken(user);
+             return await _jwtService.GenerateToken(user);
+        }
+        else
+        {
+            var user = await _userRepository.GetUserByUserName(credentials.Identifiant);
+            if (user == null || !_passwordHasherService.VerifyPassword(credentials.Password, user.Password))
+                throw new UnauthorizedAccessException("Identifiant ou mot de passe incorrect");
+
+            return await _jwtService.GenerateToken(user);
+        }
     }
 
     public async Task<User> Register(RegisterRequestDTO credentials)
