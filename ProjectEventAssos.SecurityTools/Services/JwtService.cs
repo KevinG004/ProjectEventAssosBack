@@ -28,7 +28,7 @@ namespace ProjectEventAssos.Core.Service.Auth
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
 
             // Claims personnalisés
-            new Claim("role", user.Role.ToString())
+            new Claim("role", user.RoleId.ToString())
         };
 
             // Génération du JWT Token
