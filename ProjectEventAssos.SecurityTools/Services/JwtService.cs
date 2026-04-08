@@ -49,7 +49,7 @@ namespace ProjectEventAssos.Core.Service.Auth
             return Task.FromResult(new LoginResponseDTO
             {
                 Token = tokenString,
-                Expiration = expiration
+                Expiration = expiration,
             });
         }
     }

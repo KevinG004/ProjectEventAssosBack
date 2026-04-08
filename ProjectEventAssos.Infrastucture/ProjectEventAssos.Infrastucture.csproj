@@ -19,4 +19,8 @@
     <ProjectReference Include="..\ProjectEventAssos.SecurityTools\ProjectEventAssos.SecurityTools.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataBase\Migrations\" />
+  </ItemGroup>
+
 </Project>
