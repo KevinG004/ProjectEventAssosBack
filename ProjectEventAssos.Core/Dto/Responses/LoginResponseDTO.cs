@@ -8,5 +8,6 @@ namespace ProjectEventAssos.Core.Dto.Responses
     {
         public string Token { get; set; } = null!;
         public DateTime Expiration { get; set; }
+        public bool PasswordChanged { get; set; } = false;
     }
 }

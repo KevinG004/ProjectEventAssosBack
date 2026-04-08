@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace ProjectEventAssos.Infrastucture.DataContext.Migrations
+namespace ProjectEventAssos.Infrastucture.DataBase.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCommit : Migration
+    public partial class DataSeedChanged : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +32,7 @@ namespace ProjectEventAssos.Infrastucture.DataContext.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PasswordChanged = table.Column<bool>(type: "bit", nullable: false),
                     RoleId = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
@@ -59,11 +60,6 @@ namespace ProjectEventAssos.Infrastucture.DataContext.Migrations
                     { 1, "Role Admin ayant tout les droits possibles", "Admin" },
                     { 2, "Role User étant le Role avec le moins de permission", "Utilisateur" }
                 });
-
-            migrationBuilder.InsertData(
-                table: "Users",
-                columns: new[] { "Id", "BirthDate", "Email", "Gender", "Password", "RoleId", "UserName" },
-                values: new object[] { new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), new DateOnly(2000, 7, 25), "Madame.Dupont@gmail.com", "F", "test1234=", 1, "MadameDupont" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",

@@ -27,7 +27,9 @@ public class AuthService(
             if (user == null || !_passwordHasherService.VerifyPassword(credentials.Password, user.Password))
                 throw new UnauthorizedAccessException("Identifiant ou mot de passe incorrect");
 
-             return await _jwtService.GenerateToken(user);
+            var response = await _jwtService.GenerateToken(user);
+            response.PasswordChanged = user.PasswordChanged;
+            return response;
         }
         else
         {
@@ -35,7 +37,9 @@ public class AuthService(
             if (user == null || !_passwordHasherService.VerifyPassword(credentials.Password, user.Password))
                 throw new UnauthorizedAccessException("Identifiant ou mot de passe incorrect");
 
-            return await _jwtService.GenerateToken(user);
+            var response = await _jwtService.GenerateToken(user);
+            response.PasswordChanged = user.PasswordChanged;
+            return response;
         }
     }
 

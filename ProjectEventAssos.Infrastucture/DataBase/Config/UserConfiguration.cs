@@ -3,6 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProjectEventAssos.Domain.Models;
+using ProjectEventAssos.SecurityTools.Tools;
 
 namespace ProjectEventAssos.Infrastucture.DataBase.Config
 {
@@ -10,6 +11,8 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Config
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            var hash = new HashPassword();
+            var hashedPassword = hash.PasswordHash("Test1234=");
             builder.ToTable(t =>
                 t.HasCheckConstraint("CK_User_Email_Format", "Email LIKE '%_@%_.%_'"));
 
@@ -38,11 +41,6 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Config
                 .WithMany(r => r.Users)
                 .HasForeignKey(u => u.RoleId)
                 .IsRequired();
-
-            builder.HasData(
-                new User { Id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), RoleId = 1, Email = "Madame.Dupont@gmail.com", UserName = "MadameDupont", Password = "test1234=", BirthDate = new DateOnly(2000, 07, 25), Gender = 'F' }
-                );
         }
     }
-
 }

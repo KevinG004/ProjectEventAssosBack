@@ -9,11 +9,11 @@ using ProjectEventAssos.Infrastucture.DataBase.DataContext;
 
 #nullable disable
 
-namespace ProjectEventAssos.Infrastucture.DataContext.Migrations
+namespace ProjectEventAssos.Infrastucture.DataBase.Migrations
 {
     [DbContext(typeof(AssocEventContext))]
-    [Migration("20260331100343_InitialCommit")]
-    partial class InitialCommit
+    [Migration("20260408140726_DataSeedChanged")]
+    partial class DataSeedChanged
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,6 +84,9 @@ namespace ProjectEventAssos.Infrastucture.DataContext.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("PasswordChanged")
+                        .HasColumnType("bit");
+
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
@@ -98,18 +101,6 @@ namespace ProjectEventAssos.Infrastucture.DataContext.Migrations
                     b.ToTable("Users", t =>
                         {
                             t.HasCheckConstraint("CK_User_Email_Format", "Email LIKE '%_@%_.%_'");
-                        });
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
-                            BirthDate = new DateOnly(2000, 7, 25),
-                            Email = "Madame.Dupont@gmail.com",
-                            Gender = "F",
-                            Password = "test1234=",
-                            RoleId = 1,
-                            UserName = "MadameDupont"
                         });
                 });
 
