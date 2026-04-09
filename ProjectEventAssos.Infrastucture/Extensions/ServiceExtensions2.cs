@@ -5,6 +5,7 @@ using ProjectEventAssos.Core.Interfaces.Repositories;
 using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Core.Interfaces.Tools;
 using ProjectEventAssos.Core.Service.Auth;
+using ProjectEventAssos.Core.Services;
 using ProjectEventAssos.Core.Services.Auth;
 using ProjectEventAssos.Domain.Models;
 using ProjectEventAssos.Infrastucture.DataBase.DataContext;
@@ -32,6 +33,8 @@ namespace ProjectEventAssos.Infrastucture.Extensions
             services.AddScoped<IPasswordHashService, HashPassword>();
             services.AddScoped<IPasswordGenerateService, PasswordGenerateService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IRoleService, RoleService>();
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
         }
     }
