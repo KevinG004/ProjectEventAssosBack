@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using ProjectEventAssos.Core.Dto.Responses;
+using ProjectEventAssos.Core.Dto.Responses.User;
 using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Domain.Models;
 using System;

@@ -1,4 +1,4 @@
-﻿using ProjectEventAssos.Core.Dto.Responses;
+﻿using ProjectEventAssos.Core.Dto.Responses.User;
 using ProjectEventAssos.Domain.Models;
 using System;
 using System.Collections.Generic;

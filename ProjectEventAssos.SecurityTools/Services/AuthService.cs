@@ -1,8 +1,8 @@
 ﻿namespace ProjectEventAssos.SecurityTools.Services;
 
 using Microsoft.AspNetCore.Http.HttpResults;
-using ProjectEventAssos.Core.Dto.Requests;
-using ProjectEventAssos.Core.Dto.Responses;
+using ProjectEventAssos.Core.Dto.Requests.User;
+using ProjectEventAssos.Core.Dto.Responses.User;
 using ProjectEventAssos.Core.Interfaces.Repositories;
 using ProjectEventAssos.Core.Interfaces.Services;
 using ProjectEventAssos.Core.Interfaces.Tools;

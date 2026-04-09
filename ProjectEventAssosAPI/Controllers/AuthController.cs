@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProjectEventAssos.Core.Dto.Requests;
-using ProjectEventAssos.Core.Dto.Responses;
+using ProjectEventAssos.Core.Dto.Requests.User;
+using ProjectEventAssos.Core.Dto.Responses.User;
 using ProjectEventAssos.Core.Interfaces.Services;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 

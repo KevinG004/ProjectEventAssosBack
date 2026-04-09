@@ -1,6 +1,8 @@
-﻿using ProjectEventAssos.Core.Dto.Responses;
+﻿using ProjectEventAssos.Core.Dto.Requests.User;
+using ProjectEventAssos.Core.Dto.Responses.User;
 using ProjectEventAssos.Core.Interfaces.Repositories;
 using ProjectEventAssos.Core.Interfaces.Services;
+using ProjectEventAssos.Core.Interfaces.Tools;
 using ProjectEventAssos.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,10 @@ using System.Text;
 
 namespace ProjectEventAssos.SecurityTools.Services
 {
-    public class UserService(IUserRepository _userRespository) : IUserService
+    public class UserService(
+        IUserRepository _userRespository,
+        IPasswordHashService _passwordHashService
+        ) : IUserService
     {
         public Task<User> AddAsync(User entity)
         {
@@ -36,6 +41,25 @@ namespace ProjectEventAssos.SecurityTools.Services
         public Task<IEnumerable<User>> FindAsync(Expression<Func<User, bool>> predicate)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<FirstLoginRequestDto> FirstLogin(Guid id, FirstLoginRequestDto firstLoginRequestDto)
+        {
+            var userEntity = await _userRespository.GetByIdAsync(id);
+            if (userEntity == null)
+            {
+                return null;
+            }
+            userEntity.UserName = firstLoginRequestDto.UserName;
+            userEntity.BirthDate = firstLoginRequestDto.BirthDate;
+            userEntity.Gender = firstLoginRequestDto.Gender;
+            userEntity.PasswordChanged = true;
+
+            userEntity.Password = _passwordHashService.PasswordHash(firstLoginRequestDto.Password);
+
+            await _userRespository.UpdateAsync(id, userEntity);
+
+            return firstLoginRequestDto;
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()

@@ -4,7 +4,7 @@ using System.Text;
 using System.ComponentModel.DataAnnotations;
 using ProjectEventAssos.Domain.Models;
 
-namespace ProjectEventAssos.Core.Dto.Requests
+namespace ProjectEventAssos.Core.Dto.Requests.User
 {
     public class RegisterRequestDTO
     {
