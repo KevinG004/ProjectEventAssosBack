@@ -75,7 +75,8 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Config
 
             builder.HasMany(e => e.ListWait)
                 .WithOne(w => w.Event)
-                .HasForeignKey(w => w.EventId);
+                .HasForeignKey(w => w.EventId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -7,7 +7,7 @@ using ProjectEventAssos.Domain.Models;
 
 namespace ProjectEventAssos.Infrastucture.DataBase.Config
 {
-    internal class RoleConfiguration : IEntityTypeConfiguration<Role>
+    public class RoleConfiguration : IEntityTypeConfiguration<Role>
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {

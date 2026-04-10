@@ -16,5 +16,6 @@ namespace ProjectEventAssos.Domain.Models
         public DateOnly? BirthDate { get; set; }
         public char? Gender { get; set; }
         public Role Role { get; set; } = null!;
+        public ICollection<WaitingListEvent> WaitingListEvents { get; set; } = [];
     }
 }

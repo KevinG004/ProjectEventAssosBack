@@ -8,7 +8,7 @@ namespace ProjectEventAssos.Domain.Models
     public class Event
     {
         public Guid Id { get; set; }
-        public Guid CategorieId { get; set; }
+        public int CategorieId { get; set; }
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string? Place {  get; set; } = string.Empty;
