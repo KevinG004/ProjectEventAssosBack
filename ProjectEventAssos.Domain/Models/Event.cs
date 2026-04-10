@@ -7,6 +7,7 @@ namespace ProjectEventAssos.Domain.Models
 {
     public class Event
     {
+        public byte[]? CoverImage { get; set; }
         public Guid Id { get; set; }
         public int CategorieId { get; set; }
         public string Name { get; set; } = null!;

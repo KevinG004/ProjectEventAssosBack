@@ -65,6 +65,9 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Config
             builder.Property(e => e.MajDate) 
                 .IsRequired();
 
+            builder.Property(e => e.CoverImage)
+                .HasColumnType("varbinary(max)");
+
             builder.HasOne(e => e.Categorie)
                 .WithMany(e => e.Events)
                 .HasForeignKey(e => e.CategorieId);

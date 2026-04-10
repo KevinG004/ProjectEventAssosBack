@@ -12,7 +12,9 @@ namespace ProjectEventAssos.Infrastucture.DataBase.DataContext
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Event> Events { get; set; }
-
+        public DbSet<Categorie> Categories { get; set; }
+        public DbSet<ParticipateEvent> ParticipateEvents { get; set; }
+        public DbSet<WaitingListEvent> WaitingListEvents { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AssocEventContext).Assembly);
