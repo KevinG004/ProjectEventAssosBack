@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectEventAssos.Infrastucture.DataBase.DataContext;
 
@@ -11,9 +12,11 @@ using ProjectEventAssos.Infrastucture.DataBase.DataContext;
 namespace ProjectEventAssos.Infrastucture.DataBase.Migrations
 {
     [DbContext(typeof(AssocEventContext))]
-    partial class AssocEventContextModelSnapshot : ModelSnapshot
+    [Migration("20260410115059_SeedDataImageEvent")]
+    partial class SeedDataImageEvent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -41,6 +41,11 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Config
                 .WithMany(r => r.Users)
                 .HasForeignKey(u => u.RoleId)
                 .IsRequired();
+            
+            builder.HasMany(u => u.WaitingListEvents)
+                .WithOne(u => u.User)
+                .HasForeignKey(u => u.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

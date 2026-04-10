@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectEventAssos.Infrastucture.DataBase.DataContext;
 
@@ -11,9 +12,11 @@ using ProjectEventAssos.Infrastucture.DataBase.DataContext;
 namespace ProjectEventAssos.Infrastucture.DataBase.Migrations
 {
     [DbContext(typeof(AssocEventContext))]
-    partial class AssocEventContextModelSnapshot : ModelSnapshot
+    [Migration("20260410101145_CreatedEventCategorieWaitListAndParticipate")]
+    partial class CreatedEventCategorieWaitListAndParticipate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,109 +44,7 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Concert"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Conférence"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Atelier"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Jazz"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Rock"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Classique"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Théâtre"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Comédie"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Danse"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Cinéma"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "Exposition"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Name = "Photographie"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Name = "Gastronomie"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Name = "Sport"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Name = "Yoga"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Name = "Randonnée"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Name = "Jeux"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Name = "Littérature"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            Name = "Musique"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            Name = "Bien-être"
-                        });
+                    b.ToTable("Categorie");
                 });
 
             modelBuilder.Entity("ProjectEventAssos.Domain.Models.Event", b =>
@@ -154,9 +55,6 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Migrations
 
                     b.Property<int>("CategorieId")
                         .HasColumnType("int");
-
-                    b.Property<byte[]>("CoverImage")
-                        .HasColumnType("varbinary(max)");
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
@@ -232,7 +130,7 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ParticipateEvents");
+                    b.ToTable("ParticipateEvent");
                 });
 
             modelBuilder.Entity("ProjectEventAssos.Domain.Models.Role", b =>
@@ -331,7 +229,7 @@ namespace ProjectEventAssos.Infrastucture.DataBase.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("WaitingListEvents");
+                    b.ToTable("WaitingListEvent");
                 });
 
             modelBuilder.Entity("ProjectEventAssos.Domain.Models.Event", b =>
