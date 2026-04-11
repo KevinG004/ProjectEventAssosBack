@@ -53,7 +53,7 @@ namespace ProjectEventAssos.Infrastucture.Repositories
             return await _entities.ToListAsync();
         }
 
-        public async Task<TEntity?> GetByIdAsync(TKey id)
+        public async virtual Task<TEntity?> GetByIdAsync(TKey id)
         {
             return await _entities.FindAsync(id);
         }
