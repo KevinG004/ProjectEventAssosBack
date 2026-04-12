@@ -31,5 +31,14 @@ namespace ProjectEventAssos.Infrastucture.Repositories
                 .Include(e => e.WaitList)
                 .FirstOrDefaultAsync(e => e.Id == Id);
         }
+        public override async Task UpdateAsync(Guid id, Event entity)
+        {
+            var EventUdpdate = await _entities.FirstOrDefaultAsync(e => e.Id == id);
+            if (EventUdpdate != null) 
+            {
+                EventUdpdate.MajDate = DateTime.Now;
+                await base.UpdateAsync(id,EventUdpdate);
+            }
+        }
     }
 }
