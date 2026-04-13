@@ -20,7 +20,7 @@ namespace ProjectEventAssosAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<PageEventResult>> AfficherListeEvent([FromQuery] int page = 1)
+        public async Task<ActionResult<PageEventResult>> AfficherListeEvent([FromQuery] int page)
         {
             try
             {
