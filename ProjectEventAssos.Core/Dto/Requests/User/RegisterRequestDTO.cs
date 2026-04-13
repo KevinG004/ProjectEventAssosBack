@@ -11,6 +11,5 @@ namespace ProjectEventAssos.Core.Dto.Requests.User
         [StringLength(100, ErrorMessage = "La longueur maximum doit être comprise entre 2 et 100 caractères", MinimumLength = 2)]
         public string Email { get; set; } = null!;
         public int RoleId { get; set; }
-
     }
 }
