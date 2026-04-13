@@ -38,6 +38,7 @@ namespace ProjectEventAssos.Infrastucture.Extensions
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IParticipeEventRepository, ParticipeEventRepository>();
             services.AddScoped<IWaitingListEventRepository, WaitingListRepository>();
+            services.AddScoped<IEventService, EventService>();
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
         }
     }

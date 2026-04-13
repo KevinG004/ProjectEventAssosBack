@@ -28,7 +28,9 @@ namespace ProjectEventAssos.Infrastucture.Repositories
         public override async Task<Event?> GetByIdAsync(Guid Id)
         {
             return await _entities.Include(e => e.Participants)
-                .Include(e => e.WaitList)
+                .Include(e => e.ListWait)
+                .Include(e => e.Categorie)
+                .Include(e => e.Participants)
                 .FirstOrDefaultAsync(e => e.Id == Id);
         }
         public override async Task UpdateAsync(Guid id, Event entity)
